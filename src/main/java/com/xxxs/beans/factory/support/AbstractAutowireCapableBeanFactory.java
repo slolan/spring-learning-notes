@@ -1,6 +1,8 @@
 package com.xxxs.beans.factory.support;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.xxxs.beans.BeansException;
+import com.xxxs.beans.PropertyValue;
 import com.xxxs.beans.factory.config.BeanDefinition;
 
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
@@ -15,13 +17,33 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         Object bean = null;
 
         try {
-            bean = getInstantiationStrategy().instantiate(beanDefinition);
+            bean = createBeanInstance(beanDefinition);
+            applyPropertyValues(beanName, bean, beanDefinition);
         } catch (Exception e) {
             throw new BeansException("Instantiation of bean is failed.", e);
         }
 
         addSingleton(beanName, bean);
         return bean;
+    }
+
+    // 实例化 bean
+    protected Object createBeanInstance(BeanDefinition beanDefinition) {
+        return getInstantiationStrategy().instantiate(beanDefinition);
+    }
+
+    // 为 bean 填充属性
+    protected void applyPropertyValues(String beanName, Object bean, BeanDefinition beanDefinition) {
+        try {
+            for (PropertyValue propertyValue : beanDefinition.getPropertyValues().getPropertyValues()) {
+                String name = propertyValue.getName();
+                Object value = propertyValue.getValue();
+                // 通过反射设置属性
+                BeanUtil.setFieldValue(bean, name, value);
+            }
+        } catch (Exception e) {
+            throw new BeansException("Setting properties is failed for '" + beanName + "'.", e);
+        }
     }
 
     public InstantiationStrategy getInstantiationStrategy() {

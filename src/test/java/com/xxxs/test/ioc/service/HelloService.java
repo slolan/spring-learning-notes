@@ -1,4 +1,4 @@
-package com.xxxs.test.ioc;
+package com.xxxs.test.ioc.service;
 
 public class HelloService {
     public String sayHello() {
