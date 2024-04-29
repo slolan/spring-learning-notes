@@ -31,7 +31,11 @@
             <version>3.25.3</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
+        </dependency>
     </dependencies>
 
 </project>
