@@ -17,10 +17,10 @@
 #### IoC
 
 * <a href=".\mini-spring-notes\bean-definition-registry.md">bean 的简单实例化和 BeanDefinition</a>
-* <a href=".\mini-spring-notes\bean-instantiation-strategy">bean 的实例化策略</a>
+* <a href=".\mini-spring-notes\bean-instantiation-strategy.md">bean 的实例化策略</a>
     * bean 的实例化策略
     * 拓展：default
-* <a href=".\mini-spring-notes\populate-bean-with-property-values">为 bean 填充属性</a>
+* <a href=".\mini-spring-notes\populate-bean-with-property-values.md">为 bean 填充属性</a>
     * 填充属性（CGLib实例化有待补充）
     * 拓展：protected
 
