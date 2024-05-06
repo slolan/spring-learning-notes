@@ -23,6 +23,9 @@
 * <a href=".\mini-spring-notes\populate-bean-with-property-values.md">为 bean 填充属性</a>
     * 填充属性（CGLib实例化有待补充）
     * 拓展：protected
+* <a href=".\mini-spring-notes\populate-bean-with-bean.md">为 bean 填充 bean</a>
+    * 待补充：循环依赖
+
 
 
 
