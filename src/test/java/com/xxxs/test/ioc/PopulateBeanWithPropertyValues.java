@@ -22,7 +22,7 @@ public class PopulateBeanWithPropertyValues {
 
         BeanDefinition beanDefinition = new BeanDefinition(Person.class, propertyValues);
 
-        factory.registryBeanDefinition("person", beanDefinition);
+        factory.registerBeanDefinition("person", beanDefinition);
         Person person = (Person) factory.getBean("person");
 
         System.out.println(person);
@@ -38,7 +38,7 @@ public class PopulateBeanWithPropertyValues {
         PropertyValues carPropertyValues = new PropertyValues();
         carPropertyValues.addPropertyValue(new PropertyValue("brand", "hongqi"));
         BeanDefinition carBeanDefinition = new BeanDefinition(Car.class, carPropertyValues);
-        factory.registryBeanDefinition("car", carBeanDefinition);
+        factory.registerBeanDefinition("car", carBeanDefinition);
 
         // 注册 Person 实例
         PropertyValues personPropertyValues = new PropertyValues();
@@ -49,7 +49,7 @@ public class PopulateBeanWithPropertyValues {
         personPropertyValues.addPropertyValue(new PropertyValue("car", new BeanReference("car")));
 
         BeanDefinition personBeanDefinition = new BeanDefinition(Person.class, personPropertyValues);
-        factory.registryBeanDefinition("person", personBeanDefinition);
+        factory.registerBeanDefinition("person", personBeanDefinition);
 
         Person person = (Person) factory.getBean("person");
         System.out.println(person.toString());
