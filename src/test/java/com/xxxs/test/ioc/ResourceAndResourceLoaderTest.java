@@ -12,7 +12,7 @@ public class ResourceAndResourceLoaderTest {
         DefaultResourceLoader resourceLoader = new DefaultResourceLoader();
 
         // 加载文件系统资源
-        Resource resource = resourceLoader.getResource("src/test/resources/hello.txt");
+        Resource resource = resourceLoader.getResource("src/main/resources/hello.txt");
         InputStream inputStream = resource.getInputStream();
         String str = IoUtil.readUtf8(inputStream);
         System.out.println(str);

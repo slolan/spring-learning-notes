@@ -3,10 +3,13 @@ package com.xxxs.beans.factory.support;
 import cn.hutool.core.bean.BeanUtil;
 import com.xxxs.beans.BeansException;
 import com.xxxs.beans.PropertyValue;
+import com.xxxs.beans.factory.ConfigurableListableBeanFactory;
+import com.xxxs.beans.factory.config.AutowireCapableBeanFactory;
 import com.xxxs.beans.factory.config.BeanDefinition;
 import com.xxxs.beans.factory.config.BeanReference;
 
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
+        implements AutowireCapableBeanFactory {
     private InstantiationStrategy instantiationStrategy = new SimpleInstantiationStrategy();
 
     @Override
