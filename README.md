@@ -26,6 +26,7 @@
 * <a href=".\mini-spring-notes\populate-bean-with-bean.md">为 bean 填充 bean</a>
     * 待补充：循环依赖
 * <a href=".\mini-spring-notes\resource-and-resource-loader.md">资源和资源加载器</a>
+* <a href=".\mini-spring-notes\xml-file-define-bean.md">在 xml 文件里读取 bean 定义信息</a>
 
 
 

@@ -7,7 +7,7 @@ import com.xxxs.beans.factory.config.BeanDefinition;
 public interface BeanDefinitionRegistry {
 
     /* 向注册表中注册 BeanDefinition */
-    void registryBeanDefinition(String beanName, BeanDefinition beanDefinition);
+    void registerBeanDefinition(String beanName, BeanDefinition beanDefinition);
 
     /* 根据名称查找 BeanDefinition */
     BeanDefinition getBeanDefinition(String beanName) throws BeansException;

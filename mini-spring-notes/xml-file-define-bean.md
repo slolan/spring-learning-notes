@@ -27,3 +27,7 @@
 又调整了 Bean Factory 的层次结构：
 
 ![](assets/DefaultListableBeanFactory140507.png)
+
+
+
+没啥可解释的了，这个现在也不常用了。
