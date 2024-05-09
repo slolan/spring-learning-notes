@@ -20,14 +20,25 @@
 
 
 
----
+
+
+## 容器加载相关类图
 
 
 
-又调整了 Bean Factory 的层次结构：
+又调整了 Bean Factory 及其一系列的层次结构：
 
 ![](assets/DefaultListableBeanFactory140507.png)
 
 
 
-没啥可解释的了，这个现在也不常用了。
+- `SingletonBeanRegistry`：定义了对单例的注册及获取。
+- `BeanFactory`：定义了**获取** Bean 和 Bean 的各种属性。
+- `DefaultSingletonBeanRegistry`：对 SingletonBeanRegistry 各函数的实现。
+- `HierarchicalBeanFactory`：继承 BeanFactory，在 Spring 框架里是实现了对 parentFactory 的支持，这里就当一个简单的接口。
+- `BeanDefinitionRegistry`：定义对 BeanDefinition 的各种增删改操作，这里只简单实现了增。
+- `ConfigurableBeanFactory`：人如其名，Spring 框架里是提供配置 Factory 的各种方法，这里当简单接口。
+- `ListableBeanFactory`：根据各种条件获取 Bean 的配置清单，这里实现的很简单。
+
+- `AbstractBeanFactory`：综合 DefaultSingletonBeanRegistry 和 ConfigurableBeanFactory 的功能。
+- `AutowiredCapableBeanFactory`：Spring 框架里是提供创建 Bean、自动注入、初始化以及应用 Bean 的后处理器。
