@@ -39,7 +39,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
     }
 
     // BeanPostProcessor 需要在其他 bean 实例化之前注册
-    protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFactory){
+    protected void registerBeanPostProcessors(ConfigurableListableBeanFactory beanFactory) {
         Map<String, BeanPostProcessor> beanPostProcessorMap = beanFactory.getBeansOfType(BeanPostProcessor.class);
         for (BeanPostProcessor beanPostProcessor : beanPostProcessorMap.values()) {
             beanFactory.addBeanPostProcessor(beanPostProcessor);
@@ -67,4 +67,26 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
     }
 
     public abstract ConfigurableListableBeanFactory getBeanFactory();
+
+    public void close() {
+        doClose();
+    }
+
+    public void registerShutdownHook() {
+        Thread shutdownHook = new Thread() {
+            public void run() {
+                doClose();
+            }
+        };
+        /* 将线程添加为 JVM 的关闭钩子，当 JVM 关闭时，这个钩子将被调用 */
+        Runtime.getRuntime().addShutdownHook(shutdownHook);
+    }
+
+    protected void doClose() {
+        destroyBeans();
+    }
+
+    protected void destroyBeans() {
+        getBeanFactory().destroySingletons();
+    }
 }
