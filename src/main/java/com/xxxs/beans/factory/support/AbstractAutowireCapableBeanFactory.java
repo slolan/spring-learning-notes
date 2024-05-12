@@ -5,6 +5,7 @@ import cn.hutool.core.util.ClassUtil;
 import cn.hutool.core.util.StrUtil;
 import com.xxxs.beans.BeansException;
 import com.xxxs.beans.PropertyValue;
+import com.xxxs.beans.factory.BeanFactoryAware;
 import com.xxxs.beans.factory.ConfigurableListableBeanFactory;
 import com.xxxs.beans.factory.DisposableBean;
 import com.xxxs.beans.factory.InitializingBean;
@@ -46,7 +47,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
     /* 注册有销毁方法的 bean，即 bean 继承自 DisposableBean 或者有自定义的销毁方法 */
     protected void registerDisposableBeanIfNecessary(String beanName, Object bean, BeanDefinition beanDefinition) {
-        if (bean instanceof DisposableBean || StrUtil.isNotEmpty(beanDefinition.getDestroyMethodName())){
+        if (bean instanceof DisposableBean || StrUtil.isNotEmpty(beanDefinition.getDestroyMethodName())) {
             registerDisposableBean(beanName, new DisposableBeanAdapter(bean, beanName, beanDefinition));
         }
     }
@@ -79,6 +80,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
     /* 初试化 bean */
     protected Object initializeBean(String beanName, Object bean, BeanDefinition beanDefinition) {
+        if (bean instanceof BeanFactoryAware) {
+            ((BeanFactoryAware) bean).setBeanFactory(this);
+        }
+
         Object wrappedBean = applyBeanPostProcessorsBeforeInitialization(bean, beanName);
 
         try {
@@ -113,12 +118,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         return result;
     }
 
-    protected void invokeInitMethods(String beanName, Object bean, BeanDefinition beanDefinition) throws Throwable{
-        if (bean instanceof InitializingBean){
+    protected void invokeInitMethods(String beanName, Object bean, BeanDefinition beanDefinition) throws Throwable {
+        if (bean instanceof InitializingBean) {
             ((InitializingBean) bean).afterPropertiesSet();
         }
         String initMethodName = beanDefinition.getInitMethodName();
-        if (StrUtil.isNotEmpty(initMethodName) && !(bean instanceof InitializingBean && "afterPropertiesSet".equals(initMethodName))){
+        if (StrUtil.isNotEmpty(initMethodName) && !(bean instanceof InitializingBean && "afterPropertiesSet".equals(initMethodName))) {
             Method initMethod = ClassUtil.getPublicMethod(beanDefinition.getBeanClass(), initMethodName);
             if (initMethod == null)
                 throw new BeansException("Could not find an init method named '" + initMethodName +

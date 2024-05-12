@@ -31,6 +31,7 @@
 * <a href=".\mini-spring-notes\bean-factory-post-processor-and-bean-post-processor.md">容器扩展机制 BeanFactoryPostProcess 和 BeanPostProcessor</a>
 * <a href=".\mini-spring-notes\application-context.md">应用上下文</a>
 * <a href=".\mini-spring-notes\init-and-destory-method.md">bean 的初始化和销毁方法</a>
+* <a href=".\mini-spring-notes\aware-interface.md">aware 接口</a>
 
 
 
