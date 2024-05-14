@@ -6,10 +6,24 @@ import com.xxxs.beans.PropertyValues;
 // 可以看源码：https://github.com/spring-projects/spring-framework/blob/main/spring-beans/src/main/java/org/springframework/beans/factory/config/BeanDefinition.java
 // 这里简化为只包含 class 类型和 bean 属性
 public class BeanDefinition {
+
+    private static String SCOPE_SINGLETON = "singleton";
+
+    private static String SCOPE_PROTOTYPE = "prototype";
+
     private Class beanClass;
+
     private PropertyValues propertyValues;
+
     private String initMethodName;
+
     private String destroyMethodName;
+
+    private String scope = SCOPE_SINGLETON;
+
+    private boolean singleton = true;
+
+    private boolean prototype = false;
 
     public BeanDefinition(Class beanClass) {
         this(beanClass, null);
@@ -18,6 +32,20 @@ public class BeanDefinition {
     public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
         this.beanClass = beanClass;
         this.propertyValues = propertyValues == null ? new PropertyValues() : propertyValues;
+    }
+
+    public void setScope(String scope){
+        this.scope = scope;
+        singleton = SCOPE_SINGLETON.equals(scope);
+        prototype = SCOPE_PROTOTYPE.equals(scope);
+    }
+
+    public boolean isSingleton() {
+        return singleton;
+    }
+
+    public boolean isPrototype() {
+        return prototype;
     }
 
     public Class getBeanClass() {
