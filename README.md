@@ -34,6 +34,7 @@
 * <a href=".\mini-spring-notes\aware-interface.md">aware 接口</a>
 * <a href=".\mini-spring-notes\prototype-bean.md">bean 作用域：prototype</a>
 * <a href=".\mini-spring-notes\prototype-bean.md">factory bean</a>
+* <a href=".\mini-spring-notes\event-and-event-listener.md">容器事件和事件监听器</a>
 
 
 
