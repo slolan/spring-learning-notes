@@ -33,6 +33,7 @@
 * <a href=".\mini-spring-notes\init-and-destory-method.md">bean 的初始化和销毁方法</a>
 * <a href=".\mini-spring-notes\aware-interface.md">aware 接口</a>
 * <a href=".\mini-spring-notes\prototype-bean.md">bean 作用域：prototype</a>
+* <a href=".\mini-spring-notes\prototype-bean.md">factory bean</a>
 
 
 
