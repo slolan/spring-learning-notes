@@ -41,6 +41,7 @@
 #### AOP
 
 - <a href=".\mini-spring-notes\pointcut-expression.md">切点表达式</a>
+
 - <a href=".\mini-spring-notes\jdk-dynamic-proxy.md">基于 JDK 的动态代理</a>
 
 - <a href=".\mini-spring-notes\cglib-dynamic-proxy.md">基于 cglib 的动态代理</a>
@@ -50,6 +51,8 @@
 - <a href=".\mini-spring-notes\common-advice.md">常用的 Advice（BeforeAdvice）</a>
 
 - <a href=".\mini-spring-notes\pointcut-advisor.md">PointcutAdvisor：Pointcut 和 Advice 组合</a>
+
+- <a href=".\mini-spring-notes\auto-proxy.md">动态代理融入 bean 生命周期</a>
 
 
 

@@ -1,6 +1,7 @@
 package com.xxxs.beans.factory.support;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.bean.OptionalBean;
 import cn.hutool.core.util.ClassUtil;
 import cn.hutool.core.util.StrUtil;
 import com.xxxs.beans.BeansException;
@@ -9,10 +10,7 @@ import com.xxxs.beans.factory.BeanFactoryAware;
 import com.xxxs.beans.factory.ConfigurableListableBeanFactory;
 import com.xxxs.beans.factory.DisposableBean;
 import com.xxxs.beans.factory.InitializingBean;
-import com.xxxs.beans.factory.config.AutowireCapableBeanFactory;
-import com.xxxs.beans.factory.config.BeanDefinition;
-import com.xxxs.beans.factory.config.BeanPostProcessor;
-import com.xxxs.beans.factory.config.BeanReference;
+import com.xxxs.beans.factory.config.*;
 
 import java.lang.reflect.Method;
 
@@ -22,7 +20,31 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
     @Override
     protected Object createBean(String beanName, BeanDefinition beanDefinition) {
+        // 如果 bean 需要代理，则直接返回代理对象
+        Object bean = resolveBeforeInstantiation(beanName, beanDefinition);
+        if (bean != null) return bean;
         return doCreateBean(beanName, beanDefinition);
+    }
+
+    /* 执行 InstantiationAwareBeanPostProcessor 方法，如果 bean 需要代理，则直接返回代理对象 */
+    protected Object resolveBeforeInstantiation(String beanName, BeanDefinition beanDefinition) {
+        Object bean = applyBeanPostProcessorsBeforeInstantiation(beanDefinition.getBeanClass(), beanName);
+        if (bean != null) {
+            bean = applyBeanPostProcessorsAfterInitialization(bean, beanName);
+        }
+        return bean;
+    }
+
+    protected Object applyBeanPostProcessorsBeforeInstantiation(Class beanClass, String beanName) {
+        for (BeanPostProcessor beanPostProcessor : getBeanPostProcessors()) {
+            if (beanPostProcessor instanceof InstantiationAwareBeanPostProcessor) {
+                Object result = ((InstantiationAwareBeanPostProcessor) beanPostProcessor).postProcessBeforeInstantiation(beanClass, beanName);
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+        return null;
     }
 
     protected Object doCreateBean(String beanName, BeanDefinition beanDefinition) {
@@ -49,7 +71,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
     /* 注册有销毁方法的 bean，即 bean 继承自 DisposableBean 或者有自定义的销毁方法 */
     protected void registerDisposableBeanIfNecessary(String beanName, Object bean, BeanDefinition beanDefinition) {
-       // 只有 singleton 的 bean 会执行销毁方法
+        // 只有 singleton 的 bean 会执行销毁方法
         if (beanDefinition.isSingleton()) {
             if (bean instanceof DisposableBean || StrUtil.isNotEmpty(beanDefinition.getDestroyMethodName())) {
                 registerDisposableBean(beanName, new DisposableBeanAdapter(bean, beanName, beanDefinition));
