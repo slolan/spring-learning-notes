@@ -43,7 +43,7 @@
 - <a href=".\mini-spring-notes\pointcut-expression.md">切点表达式</a>
 - <a href=".\mini-spring-notes\jdk-dynamic-proxy.md">基于 JDK 的动态代理</a>
 
-- <a href=".\mini-spring-notes\jdk-dynamic-proxy.md">基于 JDK 的动态代理</a>
+- <a href=".\mini-spring-notes\cglib-dynamic-proxy.md.md">基于 cglib 的动态代理</a>
 
 
 
