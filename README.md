@@ -49,6 +49,11 @@
 
 - <a href=".\mini-spring-notes\common-advice.md">常用的 Advice（BeforeAdvice）</a>
 
+- <a href=".\mini-spring-notes\pointcut-advisor.md">PointcutAdvisor：Pointcut 和 Advice 组合</a>
+
+
+
+
 
 
 - ……更新中
