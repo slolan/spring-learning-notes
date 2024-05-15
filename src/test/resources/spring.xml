@@ -7,19 +7,19 @@
 		 http://www.springframework.org/schema/context
 		 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <bean id="person" class="com.xxxs.test.ioc.bean.Person">
+    <bean id="person" class="com.xxxs.test.bean.Person">
         <property name="name" value="derek"/>
         <property name="car" ref="car"/>
     </bean>
 
-    <bean id="car" class="com.xxxs.test.ioc.bean.Car">
+    <bean id="car" class="com.xxxs.test.bean.Car">
         <property name="brand" value="porsche"/>
     </bean>
 
-    <bean class="com.xxxs.test.ioc.common.CustomBeanFactoryPostProcessor"/>
+    <bean class="com.xxxs.test.common.CustomBeanFactoryPostProcessor"/>
 
-    <bean class="com.xxxs.test.ioc.common.CustomerBeanPostProcessor"/>
+    <bean class="com.xxxs.test.common.CustomerBeanPostProcessor"/>
 
-    <bean class="com.xxxs.test.ioc.service.HelloService"/>
+    <bean class="com.xxxs.test.service.HelloService"/>
 
 </beans>

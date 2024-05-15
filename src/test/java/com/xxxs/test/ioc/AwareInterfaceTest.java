@@ -1,7 +1,7 @@
 package com.xxxs.test.ioc;
 
 import com.xxxs.context.support.ClassPathXmlApplicationContext;
-import com.xxxs.test.ioc.service.HelloService;
+import com.xxxs.test.service.HelloService;
 import org.junit.Test;
 
 public class AwareInterfaceTest {

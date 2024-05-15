@@ -1,4 +1,4 @@
-package com.xxxs.test.ioc.common;
+package com.xxxs.test.common;
 
 import com.xxxs.beans.BeansException;
 import com.xxxs.beans.PropertyValue;

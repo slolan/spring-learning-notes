@@ -1,7 +1,7 @@
 package com.xxxs.test.ioc;
 
 import com.xxxs.context.support.ClassPathXmlApplicationContext;
-import com.xxxs.test.ioc.common.event.CustomEvent;
+import com.xxxs.test.common.event.CustomEvent;
 import org.junit.Test;
 
 public class EventAndEventListenerTest {

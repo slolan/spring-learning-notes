@@ -1,8 +1,7 @@
 package com.xxxs.test.ioc;
 
 import com.xxxs.context.support.ClassPathXmlApplicationContext;
-import com.xxxs.test.ioc.bean.Car;
-import com.xxxs.test.ioc.common.CarFactoryBean;
+import com.xxxs.test.bean.Car;
 import org.junit.Test;
 
 public class FactoryBeanTest {

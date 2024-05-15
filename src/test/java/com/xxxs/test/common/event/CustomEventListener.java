@@ -1,4 +1,4 @@
-package com.xxxs.test.ioc.common.event;
+package com.xxxs.test.common.event;
 
 import com.xxxs.context.ApplicationListener;
 

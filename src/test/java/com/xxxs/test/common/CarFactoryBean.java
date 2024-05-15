@@ -1,7 +1,7 @@
-package com.xxxs.test.ioc.common;
+package com.xxxs.test.common;
 
 import com.xxxs.beans.factory.FactoryBean;
-import com.xxxs.test.ioc.bean.Car;
+import com.xxxs.test.bean.Car;
 
 public class CarFactoryBean implements FactoryBean<Car> {
 

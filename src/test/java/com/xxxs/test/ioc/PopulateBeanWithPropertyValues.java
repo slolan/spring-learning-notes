@@ -5,8 +5,8 @@ import com.xxxs.beans.PropertyValues;
 import com.xxxs.beans.factory.config.BeanDefinition;
 import com.xxxs.beans.factory.config.BeanReference;
 import com.xxxs.beans.factory.support.DefaultListableBeanFactory;
-import com.xxxs.test.ioc.bean.Car;
-import com.xxxs.test.ioc.bean.Person;
+import com.xxxs.test.bean.Car;
+import com.xxxs.test.bean.Person;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 

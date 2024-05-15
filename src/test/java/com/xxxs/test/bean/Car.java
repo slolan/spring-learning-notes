@@ -1,4 +1,4 @@
-package com.xxxs.test.ioc.bean;
+package com.xxxs.test.bean;
 
 public class Car {
     private String brand;

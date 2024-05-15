@@ -1,8 +1,8 @@
-package com.xxxs.test.ioc.common;
+package com.xxxs.test.common;
 
 import com.xxxs.beans.BeansException;
 import com.xxxs.beans.factory.config.BeanPostProcessor;
-import com.xxxs.test.ioc.bean.Person;
+import com.xxxs.test.bean.Person;
 
 public class CustomerBeanPostProcessor implements BeanPostProcessor {
     @Override

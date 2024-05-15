@@ -1,4 +1,4 @@
-package com.xxxs.test.ioc.bean;
+package com.xxxs.test.bean;
 
 import com.xxxs.beans.factory.DisposableBean;
 import com.xxxs.beans.factory.InitializingBean;

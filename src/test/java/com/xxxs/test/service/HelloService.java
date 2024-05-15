@@ -1,4 +1,4 @@
-package com.xxxs.test.ioc.service;
+package com.xxxs.test.service;
 
 import com.xxxs.beans.BeansException;
 import com.xxxs.beans.factory.BeanFactory;

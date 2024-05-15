@@ -2,10 +2,10 @@ package com.xxxs.test.ioc;
 
 import com.xxxs.beans.factory.support.DefaultListableBeanFactory;
 import com.xxxs.beans.factory.xml.XmlBeanDefinitionReader;
-import com.xxxs.test.ioc.bean.Car;
-import com.xxxs.test.ioc.bean.Person;
-import com.xxxs.test.ioc.common.CustomBeanFactoryPostProcessor;
-import com.xxxs.test.ioc.common.CustomerBeanPostProcessor;
+import com.xxxs.test.bean.Car;
+import com.xxxs.test.bean.Person;
+import com.xxxs.test.common.CustomBeanFactoryPostProcessor;
+import com.xxxs.test.common.CustomerBeanPostProcessor;
 import org.junit.Test;
 
 public class BeanFactoryPostProcessorAndBeanPostProcessor {
