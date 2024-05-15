@@ -6,9 +6,11 @@ import com.xxxs.aop.TargetSource;
 import com.xxxs.aop.aspectj.AspectJExpressionPointcut;
 import com.xxxs.aop.framework.CglibAopProxy;
 import com.xxxs.aop.framework.JdkDynamicAopProxy;
+import com.xxxs.aop.framework.ProxyFactory;
 import com.xxxs.test.common.WorldServiceInterceptor;
 import com.xxxs.test.service.WorldService;
 import com.xxxs.test.service.WorldServiceImpl;
+import org.assertj.core.api.FloatAssert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,6 +41,17 @@ public class DynamicProxyTest {
     @Test
     public void testCglibDynamicProxy() throws Exception{
         WorldService proxy = (WorldService) new CglibAopProxy(advisedSupport).getProxy();
+        proxy.explode();
+    }
+
+    @Test
+    public void testProxyFactory(){
+        advisedSupport.setProxyTargetClass(false);
+        WorldService proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
+        proxy.explode();
+
+        advisedSupport.setProxyTargetClass(true);
+        proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
         proxy.explode();
     }
 }

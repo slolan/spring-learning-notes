@@ -45,6 +45,8 @@
 
 - <a href=".\mini-spring-notes\cglib-dynamic-proxy.md.md">基于 cglib 的动态代理</a>
 
+- <a href=".\mini-spring-notes\proxy-factory.md.md">AOP 代理工厂</a>
+
 
 
 - ……更新中

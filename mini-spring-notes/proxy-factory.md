@@ -1,0 +1,1 @@
+AOP 代理工厂 ProxyFactory， 由AdvisedSupport#proxyTargetClass 属性决定使用 jdk 还是 cglib 动态代理。
