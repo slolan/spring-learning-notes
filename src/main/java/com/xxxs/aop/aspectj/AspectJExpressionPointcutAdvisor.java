@@ -1,7 +1,6 @@
 package com.xxxs.aop.aspectj;
 
-import com.xxxs.aop.Advisor;
-import com.xxxs.aop.PointCut;
+import com.xxxs.aop.Pointcut;
 import com.xxxs.aop.PointcutAdvisor;
 import org.aopalliance.aop.Advice;
 
@@ -24,7 +23,7 @@ public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
     }
 
     @Override
-    public PointCut getPointcut() {
+    public Pointcut getPointcut() {
         return this.pointcut;
     }
 
