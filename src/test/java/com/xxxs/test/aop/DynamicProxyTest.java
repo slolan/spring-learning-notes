@@ -91,7 +91,7 @@ public class DynamicProxyTest {
             advised.setMethodInterceptor((MethodInterceptor) advisor.getAdvice());
             advised.setMethodMatcher(advisor.getPointcut().getMethodMatcher());
 
-            WorldService proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
+            WorldService proxy = (WorldService) new ProxyFactory(advised).getProxy();
             proxy.explode();
         }
     }
